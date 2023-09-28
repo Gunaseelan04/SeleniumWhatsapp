@@ -1,2 +1,2 @@
 # SeleniumWhatsapp
-This repository is to developed a chat
+This repository is to developed a chat items 
