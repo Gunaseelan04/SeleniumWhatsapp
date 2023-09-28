@@ -1,0 +1,436 @@
+//1
+	public void browserLaunch() {
+		driver = new ChromeDriver();
+}
+//2
+	public void enterApplnUrl(String url) {
+		driver.get(url);
+		
+	}
+	//3
+	public void maximizeWindow() {
+		driver.manage().window().maximize();
+	}
+	//4
+	public void elementSendKeys(WebElement element,String data) {
+		element.sendKeys(data);
+
+	}
+	//5
+	public void elementClick(WebElement element) {
+		element.click();
+	}
+	//6
+	public String getAttribute() {
+		String title = driver.getTitle();
+		return title;
+		
+	}
+	//7
+	public WebElement findLocatorById(String attribute) {
+		WebElement element = driver.findElement(By.id(getAttribute()));
+		return element;
+	
+	}
+	//8
+	public WebElement findLocatorByName(String attribute) {
+		WebElement element = driver.findElement(By.name(getAttribute()));
+		return element;
+	
+	}
+	//9
+	public WebElement findLocatorByClassName(String attribute) {
+		WebElement element = driver.findElement(By.className(getAttribute()));
+		return element;
+	
+	}
+	//10
+	public WebElement findLocatorByXpath(String attribute) {
+		WebElement element = driver.findElement(By.xpath(getAttribute()));
+		return element;
+	
+	}
+	//11
+	public String elementGetAttribute(WebElement element) {
+	     String attribute = element.getAttribute("value");
+	     return attribute;
+	    
+	}
+	//12
+	public String elementGetAttribute(WebElement element,String Attribute) {
+	     String attribute = element.getAttribute(Attribute);
+	     return attribute;
+	}
+	//13
+	public String elementGetText(WebElement element) {
+		 String text = element.getText();
+		 return text;
+
+	}
+	//14
+	public void selectOptionByText(WebElement element,String text) {
+        Select select= new Select(element);
+        select.selectByVisibleText(text);  
+	}
+	//14
+	public void selectOptionByValue(WebElement element,String value) {
+        Select select= new Select(element);
+        select.selectByValue(value);  
+	
+	}
+	//15
+	public void selectOptionByIndex(WebElement element,int index) {
+        Select select= new Select(element);
+        select.selectByIndex(index);  
+	
+	}
+	//16
+	public void elementSendKeysJS(WebElement element,String data) {
+		JavascriptExecutor executor=(JavascriptExecutor) driver;
+		executor.executeScript("arguments[0].setAttribute('value''"+data+"')", element);
+
+	}
+	//17
+	public List<WebElement> findLocatorsByid(String attributeName) {
+    	List<WebElement> elements = driver.findElements(By.id(attributeName));
+    	return elements;
+    	 
+    }
+	//18
+	public WebElement locatorbyname(String str) {
+		WebElement elt = driver.findElement(By.name(str));
+		return elt;
+	}
+	//19
+	public WebElement classname(String str) {
+		WebElement elt = driver.findElement(By.className(str));
+		return elt;
+	}
+	//20
+	public WebElement findlocatorbyxpath(String str) {
+		WebElement elt = driver.findElement(By.xpath(str));
+		return elt;
+	
+	}
+	//21
+	public String txtwebpage(String str) {
+		WebElement findElement = driver.findElement(By.xpath(str));
+		String text = findElement.getText();
+		return text;
+		
+	}
+	//22
+	public String txtfrmbox(String id) {
+		WebElement findElement = driver.findElement(By.id(id));
+		String text = findElement.getText();
+		return text;
+		
+	}
+	//23
+	public void navigateto(String str) {
+		Navigation navigate = driver.navigate();
+		navigate.to(str);
+	}
+	//24
+	public void navigateback() {
+		Navigation navigate = driver.navigate();
+		navigate.back();
+	}
+	//25
+	public void refresh() {
+		driver.navigate().refresh();
+	}
+	//26
+
+	public void sleep(int milli) throws InterruptedException {
+		Thread.sleep(milli);
+	}
+	//27
+	public void movetoelement(String id) {
+		WebElement findElement = driver.findElement(By.id(id));
+		Actions act= new Actions(driver);
+		act.moveToElement(findElement);
+	}
+	//28
+	public void draganddrop(String str1,String str2) {
+		WebElement s = driver.findElement(By.id(str1));
+		WebElement d = driver.findElement(By.id(str2));
+		Actions act = new Actions(driver);
+		act.dragAndDrop(s, d);
+	}
+	//29
+	public void rightclik(String str) {
+		WebElement lnk = driver.findElement(By.id(str));
+		Actions act = new Actions(driver);
+		act.contextClick(lnk);
+	}
+	//30
+	public void keydown(String str1, String str2) {
+		//WebElement elt = driver.findElement(By.id(str1));
+		Actions act = new Actions(driver);
+		act.keyDown(str2);
+	}
+	//31
+	public void keyup(String str1, String str2) {
+		//WebElement elt = driver.findElement(By.id(str1));
+		Actions act = new Actions(driver);
+		act.keyUp(str2);
+	}
+	//32
+	public void doubleclick(String str) {
+	//	WebElement elt = driver.findElement(By.id(str));
+		Actions act = new Actions(driver);
+		act.doubleClick();
+	}
+	//33
+	public void sendkeys(String str1, String str2) {
+		WebElement elt = driver.findElement(By.id(str1));
+		elt.sendKeys(str2);
+	}
+	//34
+	public boolean isselected(String str) {
+		WebElement elt = driver.findElement(By.id(str));
+		boolean b = elt.isSelected();
+		return b;
+	}
+	//35
+	public boolean isdisplayed(String str) {
+		WebElement elt = driver.findElement(By.id(str));
+		boolean b = elt.isDisplayed();
+		return b;
+	}
+	//36
+	public boolean isenabled(String str) {
+		WebElement elt = driver.findElement(By.id(str));
+		boolean b = elt.isEnabled();
+		return b;
+	}
+	//37
+	public void acceptalert() {
+		Alert al = driver.switchTo().alert();
+		al.accept();
+	}
+	//38
+	public void alert() {
+		driver.switchTo().alert();
+	}
+	//39
+	public void dismissalert() {
+		Alert al = driver.switchTo().alert();
+		al.dismiss();
+	}
+	//40
+	public void sendkeysinalert(String str) {
+		Alert al = driver.switchTo().alert();
+		al.sendKeys(str);
+	}
+	//41
+	public void screenshot(String a) throws IOException {
+		TakesScreenshot scrt = (TakesScreenshot) driver;
+		File s = scrt.getScreenshotAs(OutputType.FILE);
+		File d = new File("D:\\"+ a +".png");
+		FileUtils.copyFile(s, d);
+		
+	}
+	//42
+	public void screenshotelement(String str ,String a) throws IOException {
+		WebElement elt = driver.findElement(By.id(str));
+		//TakesScreenshot scrt = (TakesScreenshot) driver;
+		File s = elt.getScreenshotAs(OutputType.FILE);
+		File d = new File("D:\\"+ a +".png");
+		FileUtils.copyFile(s, d);	
+	}
+	//43
+	public void clickinjs(String str) {
+		WebElement btn = driver.findElement(By.id(str));	
+		btn.click();
+	}
+	//44
+	public void clickinginjs(String data) {
+		JavascriptExecutor executor=(JavascriptExecutor) driver;
+		WebElement findElement = driver.findElement(By.id(data));
+		executor.executeScript("arguments[0].click()", findElement);
+
+	}
+	//45
+	public void closewindow() {
+		driver.close();
+	}
+	//46
+	public void quitwindow() {
+		driver.quit();
+	}
+	//47
+	public void scrollup(String s) {
+		WebElement element = driver.findElement(By.className(s));
+		JavascriptExecutor executor=(JavascriptExecutor) driver;
+		executor.executeScript("arguments[0].scrollInToview", element);
+		
+	}
+	//48
+	public List<WebElement> getoption(WebElement element,String value) {
+        Select select= new Select(element);
+        List<WebElement> options = select.getOptions();  
+        return options;
+	
+	} 
+	//49
+	public void getallsetected(WebElement element,String value) {
+        Select select= new Select(element);
+        List<WebElement> options = select.getAllSelectedOptions();
+        for (int i = 0; i < options.size(); i++) {
+        	WebElement elt = options.get(i);
+		String text = elt.getText();
+		System.out.println(text);
+        }
+	
+	}
+	//50
+	public void getfirstselected(WebElement element,String value) {
+        Select select= new Select(element);
+        WebElement firstSelectedOption = select.getFirstSelectedOption();
+        System.out.println(firstSelectedOption);
+	
+	}
+	//51
+	public boolean ismultiple(WebElement element,String value) {
+        Select select= new Select(element);
+        boolean b = select.isMultiple();
+        return b;
+	
+	}
+	//52
+	public void deselectall(WebElement element) {
+        Select select= new Select(element);
+        select.deselectAll();
+	}
+	//53
+	public void deselectbyindex(WebElement element,int a) {
+        Select select= new Select(element);
+        select.deselectByIndex(a);
+	}
+	//54
+	public void deselectbyvalue(WebElement element,String a) {
+        Select select= new Select(element);
+        select.deselectByValue(a);
+	}
+	//55
+	public void deselectbytext(WebElement element,String a) {
+        Select select= new Select(element);
+        select.deselectByVisibleText(a);
+	}
+	//56
+	public void switchtoframebyindex(int a) {
+		driver.switchTo().frame(a);
+	}
+	//57
+	public void switchtoframebyframeelement(WebElement a) {
+		driver.switchTo().frame(a);
+	}
+	//58
+	public void switchtoframebyframeid(String a) {
+		driver.switchTo().frame(a);
+	}
+	//59
+	public Dimension countofframe() {
+		WebElement element = driver.findElement(By.tagName("iframe"));
+		Dimension size = element.getSize();
+		return size;
+	}
+	//60
+	public void returntowindow() {
+		driver.switchTo().defaultContent();
+	}
+	//61
+	public void switchtoparentframe() {
+		driver.switchTo().parentFrame();
+	}
+	//62
+	public void windowhandelingswitchbyurl(String url) {
+		driver.switchTo().window(url);		
+	}
+	//63
+	public void windowhandelingswitchbytitle(String title) {
+		driver.switchTo().window(title);		
+	}
+	//64
+	public void windowhandelingswitchbyid(String id) {
+		driver.switchTo().window(id);
+	}
+	//65
+	public String windowhandleparentwindow() {
+		String win = driver.getWindowHandle();
+		return win;
+	}
+	//66
+	public Set<String> windowhandlesparentwindow() {
+		Set<String> allwin = driver.getWindowHandles();
+		return allwin;
+	}
+	//67
+	public void printallwin() {
+		Set<String> allwin = driver.getWindowHandles();
+		System.out.println(allwin);
+	}
+    //68
+	public void printparentwindow() {
+		String win = driver.getWindowHandle();
+		System.out.println(win);
+	}
+	//69
+	public WebElement webTable(String attribute, String attribute2) {
+		WebElement table = driver.findElement(By.id(attribute));
+        List<WebElement> allRow = table.findElements(By.id(attribute2));
+        for (int i = 0; i < allRow.size(); i++) {
+			WebElement element = allRow.get(i);
+			String text = element.getText();
+			}
+		return table;
+	}
+	//70
+	public void implicitwait(int s) {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(s));
+	}
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+browser Launch
+// // id="email"--> find and verify the locators username textbox
+		//
+		// // insert values
+		//
+		// WebElement findElement = driver.findElement(By.id("email"));
+		// findElement.sendKeys("gunaseelan96.gg@gmail.com");
+		//
+		// // Id ="password"
+		// WebElement findElement1 = driver.findElement(By.id("pass"));
+		// findElement1.sendKeys("9944460277");
+		//
+		// // To get the title of web page
+		// String title = driver.getTitle();
+		// System.out.println(title);
+		//
+		// // To get the Current URL
+		// String currentUrl = driver.getCurrentUrl();
+		// System.out.println(currentUrl);
+		//
+		// // Click Login Button
+		// WebElement Buttonlogin =
+		// driver.findElement(By.xpath("//button[(@value='1')]"));
+		// Buttonlogin.click();
+		//
+		// // Navigate
+		// Navigation navigate = driver.navigate();
+		// navigate.to("https://www.facebook.com/");
+		//
+		// driver.navigate().refresh();
