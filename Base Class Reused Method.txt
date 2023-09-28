@@ -1,8 +1,8 @@
-//1
+//1 method
 	public void browserLaunch() {
 		driver = new ChromeDriver();
 }
-//2
+//2 method
 	public void enterApplnUrl(String url) {
 		driver.get(url);
 		
